@@ -1,27 +1,26 @@
-class TodoController {
+class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
 
-    this.view.bindAddTodo(this.handleAddTodo.bind(this));
-    this.view.bindDeleteTodo(this.handleDeleteTodo.bind(this));
-    this.view.bindToggleTodo(this.handleToggleTodo.bind(this));
+    this.model.bindTasksChanged(this.onTasksChanged);
+    this.view.bindAddTask(this.handleAddTask);
+    this.view.bindDeleteTask(this.handleDeleteTask);
 
-    this.view.displayTodos(this.model.getTodos());
+    this.onTasksChanged(this.model.tasks);
   }
 
-  handleAddTodo(title) {
-    this.model.addTodo(title);
-    this.view.displayTodos(this.model.getTodos());
-  }
+  onTasksChanged = (tasks) => {
+    this.view.renderTasks(tasks);
+  };
 
-  handleDeleteTodo(id) {
-    this.model.deleteTodo(id);
-    this.view.displayTodos(this.model.getTodos());
-  }
+  handleAddTask = (task) => {
+    this.model.addTask(task);
+    this.model.notifyTasksChanged();
+  };
 
-  handleToggleTodo(id) {
-    this.model.toggleTodo(id);
-    this.view.displayTodos(this.model.getTodos());
-  }
+  handleDeleteTask = (index) => {
+    this.model.deleteTask(index);
+    this.model.notifyTasksChanged();
+  };
 }

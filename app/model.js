@@ -1,27 +1,29 @@
-class TodoModel {
+class Model {
   constructor() {
-    this.todos = [];
-    this.currentId = 0;
+    this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   }
 
-  addTodo(title) {
-    const newTodo = { id: this.currentId++, title, completed: false };
-    this.todos.push(newTodo);
-    return newTodo;
+  addTask(task) {
+    this.tasks.push(task);
+    this._commit();
   }
 
-  deleteTodo(id) {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
+  deleteTask(taskIndex) {
+    this.tasks.splice(taskIndex, 1);
+    this._commit();
   }
 
-  toggleTodo(id) {
-    const todo = this.todos.find((todo) => todo.id === id);
-    if (todo) {
-      todo.completed = !todo.completed;
+  _commit() {
+    localStorage.setItem("tasks", JSON.stringify(this.tasks));
+  }
+
+  bindTasksChanged(callback) {
+    this.onTasksChanged = callback;
+  }
+
+  notifyTasksChanged() {
+    if (this.onTasksChanged) {
+      this.onTasksChanged(this.tasks);
     }
-  }
-
-  getTodos() {
-    return this.todos;
   }
 }

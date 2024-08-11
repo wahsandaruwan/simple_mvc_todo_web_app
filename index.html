@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo MVC Example</title>
+    <title>MVC To-Do App</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div id="app"></div>
-
-    <!-- Model file -->
-    <script src="./model.js"></script>
-    <!-- View file -->
+    <!-- HTML -->
+    <div id="app">
+      <h1>To-Do List</h1>
+      <input type="text" id="new-task" placeholder="What needs to be done?" />
+      <button id="add-task">Add Task</button>
+      <ul id="task-list"></ul>
+    </div>
+    <!-- JS -->
+    <!-- Model -->
+    <script src="./app/model.js"></script>
+    <!-- View -->
     <script src="./app/view.js"></script>
-    <!-- Controller file -->
+    <!-- Controller -->
     <script src="./app/controller.js"></script>
-    <!-- Index file -->
-    <script src="./app/index.js"></script>
+    <!-- Index -->
+    <script src="./index.js"></script>
   </body>
 </html>
