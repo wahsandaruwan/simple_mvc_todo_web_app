@@ -1,3 +1,4 @@
+// --------------------Links the Model and View, managing how tasks are added and deleted--------------------
 class Controller {
   constructor(model, view) {
     this.model = model;
