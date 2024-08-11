@@ -26,7 +26,7 @@ class Model {
     localStorage.setItem("tasks", JSON.stringify(this.tasks));
   }
 
-  // Function to bind a callback function to be called when the tasks change
+  // Function to bind a callback function to be called when the tasks changed
   bindTasksChanged(callback) {
     this.onTasksChanged = callback;
   }
