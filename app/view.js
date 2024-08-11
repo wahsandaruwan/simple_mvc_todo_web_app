@@ -1,4 +1,4 @@
-/* --------------------Handles user interface elements and updates the task list-------------------- */
+// --------------------Handles user interface elements and updates the task list--------------------
 class View {
   constructor() {
     // Get references to UI elements

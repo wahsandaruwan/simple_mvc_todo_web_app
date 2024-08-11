@@ -1,4 +1,4 @@
-/* --------------------Manages the data (tasks) and interacts with localStorage for persistence-------------------- */
+// --------------------Manages the data (tasks) and interacts with localStorage for persistence--------------------
 class Model {
   constructor() {
     // Initialize the tasks array from localStorage, or an empty array if none exist

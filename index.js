@@ -1,4 +1,4 @@
-/* --------------------Initializes the MVC components when the DOM content is fully loaded-------------------- */
+// --------------------Initializes the MVC components when the DOM content is fully loaded--------------------
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize the Model, View, and Controller
   const model = new Model();
